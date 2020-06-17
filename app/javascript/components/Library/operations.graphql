@@ -1,0 +1,12 @@
+query LibraryQuery {
+  items {
+    id
+    title
+    description
+    imageUrl
+    user {
+      id
+      email
+    }
+  }
+}
