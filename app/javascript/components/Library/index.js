@@ -12,7 +12,7 @@ const Library = () => {
       {({ data, loading }) => (
         <div>
         { console.log(!data) }
-          { loading || !data
+          { loading || !data || !data.me
             ? "Loading"
             : data.items.map(({ title, id, description, imageUrl, user }) => (
               <button

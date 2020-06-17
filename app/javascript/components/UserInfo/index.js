@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import { Query, Mutation } from "react-apollo";
 import { Me, SignMeIn } from "./operations.graphql";
 
+import SignInForm from "../SignInForm";
+
 
 const UserInfo = () => {
   const input = useRef(null);
@@ -27,30 +29,7 @@ const UserInfo = () => {
                     authenticating ? (
                       "..."
                     ) : (
-                      <div>
-                        <form
-                          onSubmit={event => {
-                            event.preventDefault();
-                            signIn({
-                              variables: { email : input.current.value }
-                            }).then(({ data : { signIn : {token} } }) => {
-                              if (token) {
-                                localStorage.setItem("mlToken", token)
-                              }
-                            });
-                          }}
-                        >
-                          <input
-                            ref={input}
-                            type="email"
-                            placeholder="your email"
-                          />
-                          <input
-                            type="submit"
-                            value="Sign in"
-                          />
-                        </form>
-                      </div>
+                      <SignInForm />
                     )
                   }
                 </Mutation>

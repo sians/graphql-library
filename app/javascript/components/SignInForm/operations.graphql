@@ -1,0 +1,9 @@
+mutation SignMeIn($email: String!) {
+  signIn(email: $email) {
+    token
+    user {
+      id
+      fullName
+    }
+  }
+}
